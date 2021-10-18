@@ -7,6 +7,25 @@
 body {
   height: 100vh;
   display: flex;
-  background-image: url("sw.png");
+  background: black;
 }
-    
+
+.memory-game {
+  width: 640px;
+  height: 640px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid yellow;
+}
+
+.memory-card {
+  width: 25%;
+  height: 33.33%;
+  border: 2px solid orange;
+}
+
+.front-face,
+.back-face {
+  position: absolute;
+  border: 2px solid gold;
+}

@@ -17,7 +17,6 @@ function flipCard() {
     firstCard = this;
   } else {
     // in the second click
-    hasFlippedCard = false;
     secondCard = this;
 
     checkForMatch ();
@@ -35,6 +34,8 @@ function checkForMatch() {
 function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
+
+  resetBoard();
 }
 
 function unflipCards() {
@@ -43,7 +44,6 @@ function unflipCards() {
   setTimeout(() => {
     firstCard.classList.remove('flip');
     secondCard.classList.remove('flip');
-
     resetBoard();
   }, 1500);
 }
@@ -51,5 +51,9 @@ function unflipCards() {
 function resetBoard() {
   [hasFlippedCard, lockBoard] = [false, false];
   [firstCard, secondCard] = [null, null];
+}
+
+function shuffle() {
+  
 }
 cards.forEach(card => card.addEventListener('click', flipCard));

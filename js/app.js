@@ -15,6 +15,10 @@ function flipCard() {
   if (lockBoard) return;
   if (this === firstCard) return;
 
+  if (countdownEl.textContent === '') {
+    timer();
+  }
+
   this.classList.add('flip');
 
   if(!hasFlippedCard) {
@@ -92,15 +96,15 @@ function timer() {
   clearInterval(count)
   timeLeft= 60;
 
-count = setInterval(function() {
-    countdownEl.textContent = timeLeft + ' seconds remaining.';
-    timeLeft -= 1;
-    if (timeLeft < 0) {
-        countdownEl.textContent = 'Sorry time is up!'
-        active = false
-        // timer = clearInterval ()
-    } 
-}, 1000)
+  count = setInterval(function() {
+      countdownEl.textContent = timeLeft + ' seconds remaining.';
+      timeLeft -= 1;
+      if (timeLeft < 0) {
+          countdownEl.textContent = 'Sorry time is up!'
+          active = false
+          // timer = clearInterval ()
+      } 
+  }, 1000)
 }
 
 function resetGame() {
@@ -112,7 +116,9 @@ function resetGame() {
   });
   resetBoard()
   shuffle()
-  timer ()
+  clearInterval(count)
+  countdownEl.textContent = ''
+  //timer ()
   active= true
 }
 resetGame()

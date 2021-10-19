@@ -1,5 +1,6 @@
 const cards = document.querySelectorAll('.memory-card');
 const resetBtn = document.querySelector('.btn');
+const lightDarkBtn = document.querySelector("#light-dark-button")
 
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -63,6 +64,11 @@ function shuffle() {
 };
 
 resetBtn.addEventListener('click', resetGame);
+lightDarkBtn.addEventListener("click", toggleLightDark)
+
+function toggleLightDark() {
+  body.className = body.className === "dark" ? "" : "dark"
+}
 
 function resetGame() {
   cards.forEach(card => {

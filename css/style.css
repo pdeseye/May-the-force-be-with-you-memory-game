@@ -9,6 +9,11 @@ body {
   background: yellow;
 }
 
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
 .page-title {
   padding-top: 20px;
   color: black;

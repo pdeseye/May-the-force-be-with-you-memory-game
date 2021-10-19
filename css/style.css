@@ -23,6 +23,14 @@ body {
   padding-bottom: 20px;
 }
 
+.page-title-dark-mode {
+  padding-top: 20px;
+  color: white;
+  font-family: 'Dela Gothic One', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 20px;
+}
 
 .memory-game {
   width: 640px;

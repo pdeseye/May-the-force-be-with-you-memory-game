@@ -6,7 +6,6 @@
 
 body {
   height: 100vh;
-  display: flex;
   background: yellow;
 }
 
@@ -14,8 +13,6 @@ body {
   color: black;
   font-family: 'Dela Gothic One', sans-serif;
   font-weight: normal;
-  display: flex;
-  flex-flow: row wrap;
   text-align: center;
 }
 

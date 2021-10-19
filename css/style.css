@@ -10,10 +10,12 @@ body {
 }
 
 .page-title {
+  padding-top: 20px;
   color: black;
   font-family: 'Dela Gothic One', sans-serif;
-  font-weight: normal;
+  font-weight: bold;
   text-align: center;
+  padding-bottom: 20px;
 }
 
 
@@ -61,3 +63,4 @@ body {
 .front-face {
   transform: rotateY(180deg);
 }
+

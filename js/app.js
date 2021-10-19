@@ -1,15 +1,17 @@
 const cards = document.querySelectorAll('.memory-card');
 const resetBtn = document.querySelector("#resetBtn");
 const lightDarkBtn = document.querySelector("#light-dark-button")
+const timerEl = document.getElementById('timer')
 
 const header = document.querySelector("#header")
 
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
-
+let active = false;
 
 function flipCard() {
+  if (!active) return;
   if (lockBoard) return;
   if (this === firstCard) return;
 
@@ -58,7 +60,7 @@ function resetBoard() {
 }
 
 function shuffle() {
-  console.log('running')
+  
   cards.forEach(card => {
     let randomPos = Math.floor(Math.random() * 12);
     card.style.order = randomPos;
@@ -66,16 +68,43 @@ function shuffle() {
 };
 
 resetBtn.addEventListener('click', resetGame);
+
 lightDarkBtn.addEventListener("click", toggleLightDark)
+
+let countdownEl = document.getElementById('countdown')
+// let timeLeft= 5;
+
+// let timer = setInterval(function() {
+//     countdownEl.textContent = timeLeft + ' seconds remaining.';
+//     timeLeft -= 1;
+//     if (timeLeft < 0) {
+//         countdownEl.textContent = 'Sorry time is up!'
+//         active = false
+//     } 
+// }, 1000)
 
 function toggleLightDark() {
   document.body.className = document.body.className === "dark-mode" ? "" : "dark-mode" 
   header.className = header.className === "page-title-dark-mode" ? "page-title" : "page-title-dark-mode"
 }
+let count, timeLeft
+function timer() {
+  clearInterval(count)
+  timeLeft= 60;
 
-
+count = setInterval(function() {
+    countdownEl.textContent = timeLeft + ' seconds remaining.';
+    timeLeft -= 1;
+    if (timeLeft < 0) {
+        countdownEl.textContent = 'Sorry time is up!'
+        active = false
+        // timer = clearInterval ()
+    } 
+}, 1000)
+}
 
 function resetGame() {
+  console.log("hello")
   cards.forEach(card => {
  
     card.classList.remove('flip');
@@ -83,5 +112,9 @@ function resetGame() {
   });
   resetBoard()
   shuffle()
+  timer ()
+  active= true
 }
 resetGame()
+
+

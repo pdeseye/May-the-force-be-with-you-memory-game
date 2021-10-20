@@ -5,6 +5,8 @@ const timerEl = document.getElementById('timer')
 
 const header = document.querySelector("#header")
 
+const winSound = new Audio('../audio/galaxy.mp3')
+
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
@@ -29,7 +31,23 @@ function flipCard() {
     // in the second click
     secondCard = this;
 
-    checkForMatch ();
+    checkForMatch();
+    winCondition();
+  }
+}
+
+function winCondition() {
+  let didWin = true;
+  cards.forEach(card => {
+    if (!card.classList .contains('flip')) {
+      didWin = false;
+    }
+  });
+
+  if (didWin) {
+    // make some music
+    winSound.volume = 0.2;
+    winSound.play();
   }
 }
 
@@ -120,7 +138,7 @@ function resetGame() {
   countdownEl.textContent = ''
   //timer ()
   active= true
+
+
 }
 resetGame()
-
-

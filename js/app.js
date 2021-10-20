@@ -14,14 +14,14 @@ const cards = document.querySelectorAll(".memory-card");
 const resetBtn = document.querySelector("#resetBtn");
 const lightDarkBtn = document.querySelector("#lightDarkBtn");
 const header = document.querySelector("#header");
-const countdownEl = document.getElementById("countdown");
-const winCountEl = document.getElementById("winCount")
-const nextLevelBtn = document.querySelector("#nextLevelBtn")
+const countDownEl = document.getElementById("countDown");
+const winCountEl = document.getElementById("winCount");
+const nextLevelBtn = document.querySelector("#nextLevelBtn");
 
 /*-------------- Event Listeners --------------*/
 resetBtn.addEventListener("click", resetGame);
 lightDarkBtn.addEventListener("click", toggleLightDark);
-nextLevelBtn.addEventListener('click', nextLevel);
+nextLevelBtn.addEventListener("click", nextLevel);
 
 /*----------------- Functions -----------------*/
 resetGame(0);
@@ -31,7 +31,7 @@ function flipCard() {
   if (lockBoard) return;
   if (this === firstCard) return;
 
-  if (countdownEl.textContent === "") {
+  if (countDownEl.textContent === "") {
     timer();
   }
 
@@ -64,13 +64,14 @@ function winCondition() {
     winSound.play();
 
     clearInterval(count);
-    
-    if (winCount >= 2) {
-      winCountEl.textContent = "You are now a Jedi!!!!"
+
+    if (winCount >= 1) {
+      winCountEl.textContent = "You are now a Jedi!!!!";
+      countDownEl.textContent = "";
     } else {
-      countdownEl.textContent = "WELL DONE YOUNG JEDI!";
+      countDownEl.textContent = "WELL DONE YOUNG JEDI!";
       winCount = winCount + 1; // keeps track of wins
-      nextLevelBtn.removeAttribute("hidden")
+      nextLevelBtn.removeAttribute("hidden");
     }
   }
 }
@@ -78,20 +79,6 @@ function winCondition() {
 function nextLevel() {
   resetGame(winCount);
 }
-// For every win, reduce the time by 10 seconds
-//    = 60 - (winCount * 10) >> on the next game button 
-// After the first win: 
-////  show a "next level" button
-////      need to hide button to start
-////      show after win
-////      hide after click
-//    logic of button:
-////      hide itself
-////      reset board
-////      update level label
-// After 3 wins:
-//    dont show "next level" button
-//    change message to "They are now a jedi"
 
 function checkForMatch() {
   if (firstCard.dataset.framework === secondCard.dataset.framework) {
@@ -141,13 +128,14 @@ function toggleLightDark() {
 
 function timer() {
   clearInterval(count);
-  timeLeft = 60 - (winCount * 5);
+  timeLeft = 60 - winCount * 5;
 
   count = setInterval(function () {
-    countdownEl.textContent = timeLeft + " seconds remaining.";
+    countDownEl.textContent = timeLeft + " seconds remaining.";
     timeLeft -= 1;
     if (timeLeft < 0) {
-      countdownEl.textContent = "IM JUST GOING TO CALL YOU JAR JAR BINKS! BETTER LUCK NEXT TIME!";
+      countDownEl.textContent =
+        "IM JUST GOING TO CALL YOU JAR JAR BINKS! BETTER LUCK NEXT TIME!";
       active = false;
     }
   }, 1000);
@@ -164,11 +152,11 @@ function resetGame(resetWinCount) {
     card.addEventListener("click", flipCard);
   });
   let level = winCount + 1;
-  nextLevelBtn.setAttribute("hidden", true)
+  nextLevelBtn.setAttribute("hidden", true);
   resetBoard();
   shuffle();
   clearInterval(count);
-  countdownEl.textContent = "";
+  countDownEl.textContent = "";
   winCountEl.textContent = "Current Level: " + level;
   active = true;
   winSound.pause();

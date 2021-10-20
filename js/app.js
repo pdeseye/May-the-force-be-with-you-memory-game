@@ -7,6 +7,7 @@ let lockBoard = false;
 let firstCard, secondCard;
 let active = false;
 let count, timeLeft;
+let winCount = 0;
 
 /*--------- Cached Element References ---------*/
 const cards = document.querySelectorAll(".memory-card");
@@ -60,9 +61,22 @@ function winCondition() {
     winSound.volume = 0.2;
     winSound.play();
 
+    clearInterval(count);
     countdownEl.textContent = "WELL DONE YOUNG JEDI!";
+    
+    winCount = winCount + 1;
   }
 }
+
+// For every win, reduce the time by 10 seconds
+//    = 60 - (winCount * 10)
+// After the first win: 
+//    show win count
+//      could be - Current Level: "Win Count + 1"
+//    show a "next game" button
+// After 5 wins:
+//    hide "next game" button
+//    change message to "They are now a jedi"
 
 function checkForMatch() {
   if (firstCard.dataset.framework === secondCard.dataset.framework) {
@@ -112,13 +126,13 @@ function toggleLightDark() {
 
 function timer() {
   clearInterval(count);
-  timeLeft = 60;
+  timeLeft = 60 - (winCount * 10);
 
   count = setInterval(function () {
     countdownEl.textContent = timeLeft + " seconds remaining.";
     timeLeft -= 1;
     if (timeLeft < 0) {
-      countdownEl.textContent = "THE DARK SIDE HAS BEEN DETECTED IN YOU!";
+      countdownEl.textContent = "IM JUST GOING TO CALL YOU JAR JAR BINKS! BETTER LUCK NEXT TIME!";
       active = false;
     }
   }, 1000);
@@ -134,4 +148,6 @@ function resetGame() {
   clearInterval(count);
   countdownEl.textContent = "";
   active = true;
+  winSound.pause();
+  winSound.currentTime = 0;
 }

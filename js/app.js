@@ -16,6 +16,7 @@ const lightDarkBtn = document.querySelector("#lightDarkBtn");
 const header = document.querySelector("#header");
 const countdownEl = document.getElementById("countdown");
 const winCountEl = document.getElementById("winCount")
+const nextLevelBtn = document.querySelector("#nextLevelBtn")
 
 /*-------------- Event Listeners --------------*/
 resetBtn.addEventListener("click", resetGame);
@@ -66,6 +67,7 @@ function winCondition() {
     winCount = winCount + 1; // keeps track of wins
     let level = winCount + 1;
     winCountEl.textContent = "Current Level: " + level;
+    nextLevelBtn.removeAttribute("hidden")
   }
 }
 
@@ -151,7 +153,7 @@ function resetGame() {
   });
   winCount = 0;
   let level = winCount + 1;
-  
+  nextLevelBtn.setAttribute("hidden", true)
   resetBoard();
   shuffle();
   clearInterval(count);

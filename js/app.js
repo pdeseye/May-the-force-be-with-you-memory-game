@@ -21,9 +21,10 @@ const nextLevelBtn = document.querySelector("#nextLevelBtn")
 /*-------------- Event Listeners --------------*/
 resetBtn.addEventListener("click", resetGame);
 lightDarkBtn.addEventListener("click", toggleLightDark);
+nextLevelBtn.addEventListener('click', nextLevel);
 
 /*----------------- Functions -----------------*/
-resetGame();
+resetGame(0);
 
 function flipCard() {
   if (!active) return;
@@ -63,27 +64,33 @@ function winCondition() {
     winSound.play();
 
     clearInterval(count);
-    countdownEl.textContent = "WELL DONE YOUNG JEDI!";
-    winCount = winCount + 1; // keeps track of wins
-    let level = winCount + 1;
-    winCountEl.textContent = "Current Level: " + level;
-    nextLevelBtn.removeAttribute("hidden")
+    
+    if (winCount >= 2) {
+      winCountEl.textContent = "You are now a Jedi!!!!"
+    } else {
+      countdownEl.textContent = "WELL DONE YOUNG JEDI!";
+      winCount = winCount + 1; // keeps track of wins
+      nextLevelBtn.removeAttribute("hidden")
+    }
   }
 }
 
+function nextLevel() {
+  resetGame(winCount);
+}
 // For every win, reduce the time by 10 seconds
 //    = 60 - (winCount * 10) >> on the next game button 
 // After the first win: 
-//    show a "next level" button
-//      need to hide button to start
-//      show after win
-//      hide after click
+////  show a "next level" button
+////      need to hide button to start
+////      show after win
+////      hide after click
 //    logic of button:
-//      hide itself
-//      reset board
-//      update level label
+////      hide itself
+////      reset board
+////      update level label
 // After 3 wins:
-//    hide "next level" button
+//    dont show "next level" button
 //    change message to "They are now a jedi"
 
 function checkForMatch() {
@@ -134,7 +141,7 @@ function toggleLightDark() {
 
 function timer() {
   clearInterval(count);
-  timeLeft = 60 - (winCount * 10);
+  timeLeft = 60 - (winCount * 5);
 
   count = setInterval(function () {
     countdownEl.textContent = timeLeft + " seconds remaining.";
@@ -146,12 +153,16 @@ function timer() {
   }, 1000);
 }
 
-function resetGame() {
+function resetGame(resetWinCount) {
+  if (Number.isFinite(resetWinCount)) {
+    winCount = resetWinCount;
+  } else {
+    winCount = 0;
+  }
   cards.forEach((card) => {
     card.classList.remove("flip");
     card.addEventListener("click", flipCard);
   });
-  winCount = 0;
   let level = winCount + 1;
   nextLevelBtn.setAttribute("hidden", true)
   resetBoard();

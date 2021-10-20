@@ -12,10 +12,10 @@ let winCount = 0;
 /*--------- Cached Element References ---------*/
 const cards = document.querySelectorAll(".memory-card");
 const resetBtn = document.querySelector("#resetBtn");
-const lightDarkBtn = document.querySelector("#light-dark-button");
-const timerEl = document.getElementById("timer");
+const lightDarkBtn = document.querySelector("#lightDarkBtn");
 const header = document.querySelector("#header");
 const countdownEl = document.getElementById("countdown");
+const winCountEl = document.getElementById("winCount")
 
 /*-------------- Event Listeners --------------*/
 resetBtn.addEventListener("click", resetGame);
@@ -63,19 +63,25 @@ function winCondition() {
 
     clearInterval(count);
     countdownEl.textContent = "WELL DONE YOUNG JEDI!";
-    
-    winCount = winCount + 1;
+    winCount = winCount + 1; // keeps track of wins
+    let level = winCount + 1;
+    winCountEl.textContent = "Current Level: " + level;
   }
 }
 
 // For every win, reduce the time by 10 seconds
-//    = 60 - (winCount * 10)
+//    = 60 - (winCount * 10) >> on the next game button 
 // After the first win: 
-//    show win count
-//      could be - Current Level: "Win Count + 1"
-//    show a "next game" button
-// After 5 wins:
-//    hide "next game" button
+//    show a "next level" button
+//      need to hide button to start
+//      show after win
+//      hide after click
+//    logic of button:
+//      hide itself
+//      reset board
+//      update level label
+// After 3 wins:
+//    hide "next level" button
 //    change message to "They are now a jedi"
 
 function checkForMatch() {
@@ -143,10 +149,14 @@ function resetGame() {
     card.classList.remove("flip");
     card.addEventListener("click", flipCard);
   });
+  winCount = 0;
+  let level = winCount + 1;
+  
   resetBoard();
   shuffle();
   clearInterval(count);
   countdownEl.textContent = "";
+  winCountEl.textContent = "Current Level: " + level;
   active = true;
   winSound.pause();
   winSound.currentTime = 0;

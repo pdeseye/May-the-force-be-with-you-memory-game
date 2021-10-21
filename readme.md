@@ -39,6 +39,6 @@ Link to the wireframe:
 - Music: https://www.proudmusiclibrary.com/en/tag/star-wars
   
 ## :star:Future Additions:
--Additional levels 
--sounds upon matching the cards
--multiple players
+- Additional levels 
+- sounds upon matching the cards
+- multiple players

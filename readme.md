@@ -1,7 +1,9 @@
-## :: Background/Instructions
+## :notepad: Background/Instructions
 MAY FORCE BE WITH YOU!!
 
 This is a basic game to test your memory skills! Select two cards to get started and see how quickly you can match them and level up!  
+
+## :camera: Game Screenshots
 
 ## :point_right: [Try Me Out!](https://may-the-force-be-with-you.netlify.app/)
 
@@ -33,3 +35,7 @@ Link to the wireframe:
 ## :green_heart: Credits
 - Star Wars Character images: https://www.pinterest.com/pin/644155552935528884/
 - Star Wars Card Back image: 
+- Music: 
+  
+## :star:Future Additions:
+-

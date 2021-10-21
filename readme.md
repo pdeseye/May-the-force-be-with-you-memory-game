@@ -13,4 +13,4 @@ Create the light/dark button.
 Try and add some Star Wars music or something of that nature play when the player matched cards. 
 
 Link to the wireframe:
-https://whimsical.com/may-the-force-be-with-you-XmcrumTYsqmHst6MYxwcRM
+<img src ="https://whimsical.com/may-the-force-be-with-you-XmcrumTYsqmHst6MYxwcRM">

@@ -6,6 +6,9 @@ This is a basic game to test your memory skills! Select two cards to get started
 
 ## :camera: Game Screenshots
 
+![alt text](./images/gamemode1.png)
+![alt text](./images/gamemode2.png)
+
 ## :point_right: [Try Me Out!](https://may-the-force-be-with-you.netlify.app/)
 
 ## :star: Technologies Used

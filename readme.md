@@ -1,4 +1,4 @@
-## :notepad: Background/Instructions
+## :notebook: Background/Instructions
 MAY FORCE BE WITH YOU!!
 
 This is a basic game to test your memory skills! Select two cards to get started and see how quickly you can match them and level up!  

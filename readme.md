@@ -1,5 +1,6 @@
 ## :notebook: Background/Instructions
 MAY FORCE BE WITH YOU!!
+Memory Game:
 
 This is a basic game to test your memory skills! Select two cards to get started and see how quickly you can match them and level up!  
 
@@ -34,8 +35,10 @@ Link to the wireframe:
 
 ## :green_heart: Credits
 - Star Wars Character images: https://www.pinterest.com/pin/644155552935528884/
-- Star Wars Card Back image: 
-- Music: 
+- Star Wars Card Back image: https://www.1999.co.jp/eng/10464740
+- Music: https://www.proudmusiclibrary.com/en/tag/star-wars
   
 ## :star:Future Additions:
--
+-Additional levels 
+-sounds upon matching the cards
+-multiple players

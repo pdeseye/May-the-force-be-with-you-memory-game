@@ -1,3 +1,18 @@
+## :: Background/Instructions
+MAY FORCE BE WITH YOU!!
+
+This is a basic game to test your memory skills! Select two cards to get started and see how quickly you can match them and level up!  
+
+## :point_right: [Try Me Out!](https://may-the-force-be-with-you.netlify.app/)
+
+## :star: Technologies Used
+- HTML
+- CSS
+- JavaScript
+- Bootstrap
+
+## :bulb: My Journey here:
+Pseudo Code:
 Set up a board with cards themed with Star Wars (having the back have the same image.)
 Create an array of SW themed items/character pairs
 Shuffle the cards in the array
@@ -13,4 +28,8 @@ Create the light/dark button.
 Try and add some Star Wars music or something of that nature play when the player matched cards. 
 
 Link to the wireframe:
-<img src ="https://whimsical.com/may-the-force-be-with-you-XmcrumTYsqmHst6MYxwcRM">
+"https://whimsical.com/may-the-force-be-with-you-XmcrumTYsqmHst6MYxwcRM">
+
+## :green_heart: Credits
+- Star Wars Character images: https://www.pinterest.com/pin/644155552935528884/
+- Star Wars Card Back image: 

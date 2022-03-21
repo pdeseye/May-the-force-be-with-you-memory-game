@@ -128,7 +128,7 @@ function toggleLightDark() {
 
 function timer() {
   clearInterval(count);
-  timeLeft = 60 - winCount * 5;
+  timeLeft = 120 - winCount * 5;
 
   count = setInterval(function () {
     countDownEl.textContent = timeLeft + " seconds remaining.";

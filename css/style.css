@@ -77,3 +77,6 @@ body {
   transform: rotateY(180deg);
 }
 
+#winCount {
+  text-align: center;
+}
